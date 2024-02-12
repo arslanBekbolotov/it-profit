@@ -1,40 +1,57 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Модальное окно</title>
-</head>
-<body>
-<button class="modal-trigger">Открыть модальное окно</button>
+  </head>
+  <body>
+    <button class="modal-trigger">Открыть модальное окно</button>
 
-<div class="container">
-    <div class="modal">
+    <div class="container">
+      <div class="modal">
         <div class="modal__content">
-            <div class="modal__row">
-                <label class="modal__label" for="name">Имя:</label>
-                <input class="modal__input" type="text" id="name" name="name" placeholder="Вася Пупкин" >
-            </div>
+          <div class="modal__row">
+            <label class="modal__label" for="name">Имя:</label>
+            <input
+              class="modal__input"
+              type="text"
+              id="name"
+              name="name"
+              placeholder="Вася Пупкин"
+            />
+          </div>
 
-            <div class="modal__row">
-                <label class="modal__label" for="email">E-mail:</label>
-                <input class="modal__input" type="email" id="email" name="email" placeholder="name@mail.com" >
-            </div>
+          <div class="modal__row">
+            <label class="modal__label" for="email">E-mail:</label>
+            <input
+              class="modal__input"
+              type="email"
+              id="email"
+              name="email"
+              placeholder="name@mail.com"
+            />
+          </div>
 
-            <div class="modal__row">
-                <label class="modal__label" for="phone">Телефон:</label>
-                <input class="modal__input" type="text" id="phone" name="phone" placeholder="+7(212)132-13-23" >
-            </div>
+          <div class="modal__row">
+            <label class="modal__label" for="phone">Телефон:</label>
+            <input
+              class="modal__input"
+              type="text"
+              id="phone"
+              name="phone"
+              placeholder="+7(212)132-13-23"
+            />
+          </div>
 
-            <div class="modal__row">
-                <label class="modal__label" for="message">Сообщение:</label>
-                <textarea class="modal__textarea" id="message" name="message" rows="4" ></textarea>
-            </div>
+          <div class="modal__row">
+            <label class="modal__label" for="message">Сообщение:</label>
+            <textarea class="modal__textarea" id="message" name="message" rows="4"></textarea>
+          </div>
 
-            <button class="modal__close">Закрыть</button>
+          <button class="modal__close">Закрыть</button>
         </div>
+      </div>
     </div>
-</div>
-
-</body>
+  </body>
 </html>

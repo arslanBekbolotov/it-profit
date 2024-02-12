@@ -1,4 +1,6 @@
-if (!localStorage.getItem('feedback')) {
+import './modal.scss';
+
+if (Boolean(!localStorage.getItem('status'))) {
   location.href = '/form.html';
 }
 

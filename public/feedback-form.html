@@ -1,39 +1,57 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Форма обратной связи</title>
-</head>
-<body>
-<div class="container">
-    <form class="feedback-form" id="feedback-form">
+  </head>
+  <body>
+    <div class="container">
+      <form class="feedback-form" id="feedback-form">
         <div class="feedback-form__row">
-            <label class="feedback-form__label" for="name">Имя:</label>
-            <input class="feedback-form__input" type="text" id="name" name="name" placeholder="Вася Пупкин" >
-            <div id="nameError" class="error__message"></div>
+          <label class="feedback-form__label" for="name">Имя:</label>
+          <input
+            class="feedback-form__input"
+            type="text"
+            id="name"
+            name="name"
+            placeholder="Вася Пупкин"
+          />
+          <div id="nameError" class="error__message"></div>
         </div>
 
         <div class="feedback-form__row">
-            <label class="feedback-form__label" for="email">E-mail:</label>
-            <input class="feedback-form__input" type="email" id="email" name="email" placeholder="name@mail.com" >
-            <div id="emailError" class="error__message"></div>
+          <label class="feedback-form__label" for="email">E-mail:</label>
+          <input
+            class="feedback-form__input"
+            type="email"
+            id="email"
+            name="email"
+            placeholder="name@mail.com"
+          />
+          <div id="emailError" class="error__message"></div>
         </div>
 
         <div class="feedback-form__row">
-            <label class="feedback-form__label" for="phone">Телефон:</label>
-            <input class="feedback-form__input" type="text" id="phone" name="phone" placeholder="+7(212)132-13-23" >
-            <div id="phoneError" class="error__message"></div>
+          <label class="feedback-form__label" for="phone">Телефон:</label>
+          <input
+            class="feedback-form__input"
+            type="text"
+            id="phone"
+            name="phone"
+            placeholder="+7(212)132-13-23"
+          />
+          <div id="phoneError" class="error__message"></div>
         </div>
 
         <div class="feedback-form__row">
-            <label class="feedback-form__label" for="message">Сообщение:</label>
-            <textarea class="feedback-form__textarea" id="message" name="message" rows="4" ></textarea>
-            <div id="messageError" class="error__message"></div>
+          <label class="feedback-form__label" for="message">Сообщение:</label>
+          <textarea class="feedback-form__textarea" id="message" name="message" rows="4"></textarea>
+          <div id="messageError" class="error__message"></div>
         </div>
 
         <button class="feedback-form__button" type="submit">Отправить</button>
-    </form>
-</div>
-</body>
+      </form>
+    </div>
+  </body>
 </html>

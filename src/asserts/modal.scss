@@ -1,0 +1,88 @@
+@use '../index';
+
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: index.$modal-background;
+  justify-content: center;
+  align-items: center;
+
+  &__content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 400px;
+    text-align: center;
+    animation: fadeIn 0.3s ease-out;
+    min-width: 300px;
+  }
+
+  &--open {
+    display: flex;
+  }
+
+  &__row {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+
+    & .modal__label {
+      margin-bottom: 5px;
+    }
+
+    & .modal__input,
+    & .modal__textarea {
+      width: 100%;
+      padding: 8px;
+      box-sizing: border-box;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 14px;
+    }
+
+    & .modal__textarea {
+      resize: vertical;
+    }
+  }
+
+  & .modal__close {
+    background-color: index.$primary-color;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+
+    &:hover {
+      background-color: darken(index.$primary-color, 10%);
+    }
+  }
+}
+
+.modal-trigger {
+  cursor: pointer;
+  background-color: index.$primary-color;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  font-size: 16px;
+  border-radius: 5px;
+
+  &:hover {
+    background-color: darken(index.$primary-color, 10%);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

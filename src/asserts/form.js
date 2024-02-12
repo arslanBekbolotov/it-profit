@@ -1,10 +1,12 @@
 import IMask from 'imask';
+import './form.scss';
 
 const form = document.getElementById('feedback-form');
 const nameInput = document.getElementById('name');
 const emailInput = document.getElementById('email');
 const phoneInput = document.getElementById('phone');
 const messageInput = document.getElementById('message');
+const apiUrl = 'http://localhost:9090/api/registration';
 const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
 const phoneMask = new IMask(phoneInput, {
@@ -22,10 +24,7 @@ const resetErrors = () => {
   const inputs = document.querySelectorAll('#name, #email, #phone, #message');
 
   inputs.forEach((input) => {
-    input.classList.remove('error');
-    const errorDiv = document.getElementById(input.id + 'Error');
-
-    if (errorDiv) errorDiv.innerHTML = '';
+    showError(input, '');
   });
 };
 
@@ -54,9 +53,21 @@ const formHasErrors = () => {
   return errorInputs.length > 0;
 };
 
-const sendFormData = async (message) => {
+const showAlert = (status, message) => {
+  const alertElement = document.createElement('div');
+  alertElement.classList.add('custom-alert', `custom-alert--${status}`);
+  alertElement.innerText = message;
+
+  document.body.appendChild(alertElement);
+
+  setTimeout(() => {
+    document.body.removeChild(alertElement);
+  }, 3000);
+};
+
+const sendFormData = async () => {
   try {
-    const response = await fetch('http://localhost:9090/api/registration', {
+    const response = await fetch(apiUrl, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -71,9 +82,14 @@ const sendFormData = async (message) => {
 
     const data = await response.json();
 
-    alert(data);
+    if (data.status) localStorage.setItem('status', JSON.stringify(data.status));
+    showAlert(data.status, data.message);
+    form.reset();
+    setTimeout(() => {
+      location.href = '/';
+    }, 2200);
   } catch (error) {
-    alert('Error sending form data:' + error);
+    console.error('Что-то пошло не так');
   }
 };
 
