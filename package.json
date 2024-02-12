@@ -7,7 +7,8 @@
     "dev": "webpack serve --mode development",
     "build": "webpack --mode production",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "format-all": "prettier --write ."
+    "format-all": "prettier --write .",
+    "server": "node server/index.js"
   },
   "repository": {
     "type": "git",
@@ -35,6 +36,8 @@
     "webpack-dev-server": "^4.15.1"
   },
   "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
     "imask": "^7.4.0"
   }
 }

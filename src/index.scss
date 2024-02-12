@@ -1,22 +1,23 @@
-*{
-  margin: 0;
+body {
+  font-family: Arial, sans-serif;
   padding: 0;
   box-sizing: border-box;
+  margin-bottom: 2000200px;
 }
 
-html, body {
-  height: 100%;
+body.modal-open {
+  overflow: hidden;
 }
 
 .container{
   max-width: 1200px;
   padding:0 15px;
   margin: 0 auto;
-  height: 100%;
 }
 
 $primary-color: #007bff;
 $button-hover-color: #0056b3;
+$modal-background: rgba(0, 0, 0, 0.7);
 
 .feedback-form {
   background-color: #fff;
@@ -24,7 +25,11 @@ $button-hover-color: #0056b3;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   max-width: 400px;
-  margin: 100px auto 0;
+  margin: 100px auto 0 auto;
+
+  &__row{
+    margin-bottom: 16px;
+  }
 
   &__label {
     display: block;
@@ -35,7 +40,6 @@ $button-hover-color: #0056b3;
   &__textarea {
     width: 100%;
     padding: 8px;
-    margin-bottom: 16px;
     box-sizing: border-box;
     max-width: 100%;
   }
@@ -54,6 +58,16 @@ $button-hover-color: #0056b3;
   }
 }
 
+.error {
+  border: 1px solid red;
+
+  &__message {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+  }
+}
+
 .modal {
   display: none;
   position: fixed;
@@ -61,39 +75,82 @@ $button-hover-color: #0056b3;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.7);
+  background-color: $modal-background;
   justify-content: center;
   align-items: center;
 
   &__content {
-    background: #fff;
+    background-color: #fff;
     padding: 20px;
     border-radius: 8px;
     max-width: 400px;
     text-align: center;
-  }
-
-  &.modal--open {
-    display: flex;
     animation: fadeIn 0.3s ease-out;
+    min-width: 300px;
   }
 
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
+  &--open {
+    display: flex;
+  }
+
+  &__row {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+
+    & .modal__label {
+      margin-bottom: 5px;
     }
-    to {
-      opacity: 1;
+
+    & .modal__input,
+    & .modal__textarea {
+      width: 100%;
+      padding: 8px;
+      box-sizing: border-box;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 14px;
+    }
+
+    & .modal__textarea {
+      resize: vertical;
+    }
+  }
+
+  & .modal__close {
+    background-color: $primary-color;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+
+    &:hover {
+      background-color: darken($primary-color, 10%);
     }
   }
 }
 
 .modal-trigger {
   cursor: pointer;
+  background-color: $primary-color;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  font-size: 16px;
+  border-radius: 5px;
+
+  &:hover {
+    background-color: darken($primary-color, 10%);
+  }
 }
 
-body.modal-open {
-  overflow: hidden;
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
-
-
